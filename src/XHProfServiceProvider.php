@@ -20,6 +20,8 @@ class XHProfServiceProvider extends ServiceProvider
             $this->bootForConsole();
         }
 
+        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'xhprof');
+
         $kernel = $this->app[Kernel::class];
         $kernel->pushMiddleware(XHProfMiddleware::class);
     }

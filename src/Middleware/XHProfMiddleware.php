@@ -30,7 +30,7 @@ class XHProfMiddleware
             //to start profiling, just enable it immediately
             $_COOKIE['_profile'] = 1;
 
-            require_once public_path(). '/vendor/xhprof/external/header.php';
+            require (config('xhprof.xhprof_path') ?? public_path('vendor/xhprof')) . '/external/header.php';
         }
 
         return $next($request);
